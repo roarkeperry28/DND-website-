@@ -610,7 +610,11 @@ body.theme-shadow .hero-inner {
    AMBIENT BACKGROUND EFFECTS
 ---------------------------------------------------- */
 
-/* The base layer behind everything */
+/* ----------------------------------------------------
+   AMBIENT BACKGROUND EFFECTS – SOFT VERSION
+---------------------------------------------------- */
+
+/* Base layer behind everything */
 .ambient-layer {
   position: fixed;
   inset: 0;
@@ -619,70 +623,94 @@ body.theme-shadow .hero-inner {
   overflow: hidden;
 }
 
-/* Make sure content sits above ambient */
+/* Make sure the rest of the page stays above it */
 body > *:not(.ambient-layer) {
   position: relative;
   z-index: 1;
 }
 
-/* DEFAULT MODE – Soft drifting motes */
+/* -----------------------------------
+   DEFAULT MODE – Soft drifting motes
+   (no theme-infernal / theme-shadow)
+----------------------------------- */
 body:not(.theme-infernal):not(.theme-shadow) .ambient-layer::before {
   content: "";
   position: absolute;
-  inset: 0;
-  background-image: radial-gradient(rgba(200,200,255,0.15) 1px, transparent 1px);
-  background-size: 3px 3px;
-  opacity: 0.35;
-  animation: defaultMotes 12s linear infinite;
-  filter: blur(1px);
+  inset: -20%;
+  background-image: radial-gradient(
+    rgba(200, 200, 255, 0.16) 2px,
+    transparent 2px
+  );
+  background-size: 120px 120px; /* big spacing = fewer dots */
+  opacity: 0.25;
+  animation: defaultMotes 30s linear infinite;
+  filter: blur(0.5px);
 }
 
 @keyframes defaultMotes {
-  from { transform: translateY(0px); }
-  to   { transform: translateY(-40px); }
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(0, -80px, 0);
+  }
 }
 
-/* INFERNAL MODE – Floating embers */
-body.theme-infernal .ambient-layer::before,
-body.theme-infernal .ambient-layer::after {
+/* -----------------------------------
+   INFERNAL MODE – Floating embers
+----------------------------------- */
+body.theme-infernal .ambient-layer::before {
   content: "";
   position: absolute;
-  inset: 0;
+  inset: -20%;
   background-image:
-    radial-gradient(rgba(255,120,70,0.35) 2px, transparent 2px),
-    radial-gradient(rgba(255,80,40,0.25) 1.4px, transparent 1.4px);
-  background-size: 6px 6px, 4px 4px;
-  opacity: 0.45;
-  animation: infernalEmbers 6s linear infinite;
+    radial-gradient(rgba(255, 150, 80, 0.35) 2px, transparent 2px),
+    radial-gradient(rgba(255, 90, 40, 0.2) 1.6px, transparent 1.6px);
+  background-size: 140px 140px, 90px 90px; /* sparse embers */
+  opacity: 0.4;
+  animation: infernalEmbers 18s linear infinite;
   mix-blend-mode: screen;
 }
 
 @keyframes infernalEmbers {
-  0%   { transform: translateY(0px) translateX(0px); }
-  50%  { transform: translateY(-35px) translateX(5px); }
-  100% { transform: translateY(0px) translateX(0px); }
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  50% {
+    transform: translate3d(10px, -80px, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
 }
 
-/* SHADOW MODE – Falling spider silk */
+/* -----------------------------------
+   SHADOW MODE – Falling spider silk
+----------------------------------- */
 body.theme-shadow .ambient-layer::before {
   content: "";
   position: absolute;
-  inset: 0;
+  inset: -20%;
   background-image: linear-gradient(
-      to bottom,
-      rgba(180,160,255,0.18) 1px,
-      transparent 1px
-    );
-  background-size: 2px 120px;
-  opacity: 0.25;
-  animation: shadowSilk 9s linear infinite;
+    to bottom,
+    rgba(180, 160, 255, 0.18) 2px,
+    transparent 2px
+  );
+  background-size: 3px 220px; /* long, thin strands */
+  opacity: 0.2;
+  animation: shadowSilk 24s linear infinite;
   filter: blur(0.4px);
 }
 
 @keyframes shadowSilk {
-  from { transform: translateY(-120px); }
-  to   { transform: translateY(0px); }
+  from {
+    transform: translate3d(0, -220px, 0);
+  }
+  to {
+    transform: translate3d(0, 0, 0);
+  }
 }
+
 
 /* Responsive */
 

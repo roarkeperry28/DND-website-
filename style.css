@@ -613,8 +613,10 @@ body.theme-shadow .hero-inner {
 /* ----------------------------------------------------
    AMBIENT BACKGROUND EFFECTS – SOFT VERSION
 ---------------------------------------------------- */
+/* ----------------------------------------------------
+   AMBIENT EFFECTS — PARTICLE VERSION (NO GRID)
+---------------------------------------------------- */
 
-/* Base layer behind everything */
 .ambient-layer {
   position: fixed;
   inset: 0;
@@ -623,94 +625,107 @@ body.theme-shadow .hero-inner {
   overflow: hidden;
 }
 
-/* Make sure the rest of the page stays above it */
+/* Make content appear above the particle layer */
 body > *:not(.ambient-layer) {
   position: relative;
   z-index: 1;
 }
 
-/* -----------------------------------
-   DEFAULT MODE – Soft drifting motes
-   (no theme-infernal / theme-shadow)
------------------------------------ */
+/* FUNCTION: Creates random particles */
+@keyframes floatParticle {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-120px) translateX(20px);
+    opacity: 0.1;
+  }
+}
+
+/* -------------------------------
+   DEFAULT MODE – Dust motes
+-------------------------------- */
 body:not(.theme-infernal):not(.theme-shadow) .ambient-layer::before {
   content: "";
   position: absolute;
-  inset: -20%;
-  background-image: radial-gradient(
-    rgba(200, 200, 255, 0.16) 2px,
-    transparent 2px
-  );
-  background-size: 120px 120px; /* big spacing = fewer dots */
-  opacity: 0.25;
-  animation: defaultMotes 30s linear infinite;
-  filter: blur(0.5px);
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: rgba(220, 220, 255, 0.4);
+
+  /* 12 random particles */
+  box-shadow:
+    20vw 80vh 6px rgba(220,220,255,0.4),
+    60vw 50vh 4px rgba(220,220,255,0.35),
+    80vw 90vh 5px rgba(220,220,255,0.3),
+    10vw 30vh 3px rgba(220,220,255,0.25),
+    50vw 70vh 4px rgba(220,220,255,0.3),
+    30vw 60vh 6px rgba(220,220,255,0.25),
+    70vw 20vh 5px rgba(220,220,255,0.3),
+    90vw 40vh 5px rgba(220,220,255,0.3),
+    15vw 55vh 4px rgba(220,220,255,0.3),
+    40vw 85vh 6px rgba(220,220,255,0.35);
+
+  animation: floatParticle 20s linear infinite;
+  filter: blur(1px);
 }
 
-@keyframes defaultMotes {
-  from {
-    transform: translate3d(0, 0, 0);
-  }
-  to {
-    transform: translate3d(0, -80px, 0);
-  }
-}
-
-/* -----------------------------------
+/* -------------------------------
    INFERNAL MODE – Floating embers
------------------------------------ */
+-------------------------------- */
 body.theme-infernal .ambient-layer::before {
   content: "";
   position: absolute;
-  inset: -20%;
-  background-image:
-    radial-gradient(rgba(255, 150, 80, 0.35) 2px, transparent 2px),
-    radial-gradient(rgba(255, 90, 40, 0.2) 1.6px, transparent 1.6px);
-  background-size: 140px 140px, 90px 90px; /* sparse embers */
-  opacity: 0.4;
-  animation: infernalEmbers 18s linear infinite;
-  mix-blend-mode: screen;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: rgba(255,120,60,0.6);
+
+  /* 12 embers */
+  box-shadow:
+    10vw 85vh 8px rgba(255,120,60,0.6),
+    40vw 90vh 6px rgba(255,80,40,0.5),
+    70vw 75vh 7px rgba(255,120,60,0.5),
+    20vw 60vh 6px rgba(255,100,50,0.55),
+    55vw 30vh 8px rgba(255,140,70,0.5),
+    85vw 65vh 6px rgba(255,80,40,0.55),
+    30vw 40vh 7px rgba(255,100,50,0.5),
+    60vw 10vh 6px rgba(255,140,70,0.5),
+    90vw 20vh 7px rgba(255,120,60,0.5),
+    15vw 90vh 6px rgba(255,80,40,0.5);
+
+  animation: floatParticle 12s linear infinite;
+  filter: blur(1px);
 }
 
-@keyframes infernalEmbers {
-  0% {
-    transform: translate3d(0, 0, 0);
-  }
-  50% {
-    transform: translate3d(10px, -80px, 0);
-  }
-  100% {
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-/* -----------------------------------
-   SHADOW MODE – Falling spider silk
------------------------------------ */
+/* -------------------------------
+   SHADOW MODE – Falling silk strands
+-------------------------------- */
 body.theme-shadow .ambient-layer::before {
   content: "";
   position: absolute;
-  inset: -20%;
-  background-image: linear-gradient(
-    to bottom,
-    rgba(180, 160, 255, 0.18) 2px,
-    transparent 2px
-  );
-  background-size: 3px 220px; /* long, thin strands */
-  opacity: 0.2;
-  animation: shadowSilk 24s linear infinite;
-  filter: blur(0.4px);
-}
+  width: 2px;
+  height: 30px;
+  background: rgba(180,160,255,0.25);
 
-@keyframes shadowSilk {
-  from {
-    transform: translate3d(0, -220px, 0);
-  }
-  to {
-    transform: translate3d(0, 0, 0);
-  }
-}
+  /* 10 strands */
+  box-shadow:
+    12vw 10vh rgba(180,160,255,0.25),
+    45vw 40vh rgba(180,160,255,0.25),
+    70vw 25vh rgba(180,160,255,0.25),
+    20vw 65vh rgba(180,160,255,0.25),
+    80vw 70vh rgba(180,160,255,0.25),
+    35vw 90vh rgba(180,160,255,0.25),
+    60vw 55vh rgba(180,160,255,0.25),
+    25vw 30vh rgba(180,160,255,0.25);
 
+  animation: floatParticle 18s linear infinite;
+  filter: blur(0.6px);
+}
 
 /* Responsive */
 

@@ -45,7 +45,7 @@ header {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 50;
+  z-index: 100; /* keep header & menu above content */
   backdrop-filter: blur(18px);
   background: linear-gradient(to bottom, rgba(5,5,9,0.92), rgba(5,5,9,0.65));
   border-bottom: 1px solid rgba(255,255,255,0.04);
@@ -618,7 +618,7 @@ body.theme-shadow .hero-inner {
 }
 
 /* ----------------------------------------------------
-   AMBIENT BACKGROUND EFFECTS – SLIGHTLY MORE VISIBLE
+   AMBIENT BACKGROUND EFFECTS – MORE VISIBLE
 ---------------------------------------------------- */
 
 .ambient-layer {
@@ -629,8 +629,8 @@ body.theme-shadow .hero-inner {
   overflow: hidden;
 }
 
-/* Make content appear above the particle layer */
-body > *:not(.ambient-layer) {
+/* Keep everything above ambient layer, but don't override header's z-index */
+body > *:not(.ambient-layer):not(header) {
   position: relative;
   z-index: 1;
 }
@@ -639,19 +639,19 @@ body > *:not(.ambient-layer) {
 @keyframes floatParticle {
   0% {
     transform: translateY(0) translateX(0);
-    opacity: 0.35;
+    opacity: 0.45;
   }
   50% {
-    opacity: 0.75;
+    opacity: 0.9;
   }
   100% {
-    transform: translateY(-120px) translateX(20px);
-    opacity: 0.15;
+    transform: translateY(-140px) translateX(25px);
+    opacity: 0.25;
   }
 }
 
 /* -------------------------------
-   DEFAULT MODE – Dust motes
+   DEFAULT MODE – Dust motes (brighter)
 -------------------------------- */
 body:not(.theme-infernal):not(.theme-shadow) .ambient-layer::before {
   content: "";
@@ -659,29 +659,28 @@ body:not(.theme-infernal):not(.theme-shadow) .ambient-layer::before {
   width: 3px;
   height: 3px;
   border-radius: 50%;
-  background: rgba(220, 220, 255, 0.65);
+  background: rgba(230, 230, 255, 0.95);
 
-  /* dust specks – slightly brighter / more of them */
   box-shadow:
-    20vw 80vh 6px rgba(220,220,255,0.7),
-    60vw 50vh 4px rgba(220,220,255,0.6),
-    80vw 90vh 5px rgba(220,220,255,0.55),
-    10vw 30vh 3px rgba(220,220,255,0.5),
-    50vw 70vh 4px rgba(220,220,255,0.55),
-    30vw 60vh 6px rgba(220,220,255,0.5),
-    70vw 20vh 5px rgba(220,220,255,0.6),
-    90vw 40vh 5px rgba(220,220,255,0.55),
-    15vw 55vh 4px rgba(220,220,255,0.5),
-    40vw 85vh 6px rgba(220,220,255,0.65),
-    25vw 15vh 5px rgba(220,220,255,0.5),
-    75vw 10vh 4px rgba(220,220,255,0.45);
+    20vw 80vh 8px rgba(230,230,255,0.95),
+    60vw 50vh 6px rgba(230,230,255,0.9),
+    80vw 90vh 7px rgba(230,230,255,0.85),
+    10vw 30vh 5px rgba(230,230,255,0.85),
+    50vw 70vh 6px rgba(230,230,255,0.9),
+    30vw 60vh 8px rgba(230,230,255,0.85),
+    70vw 20vh 7px rgba(230,230,255,0.9),
+    90vw 40vh 7px rgba(230,230,255,0.85),
+    15vw 55vh 6px rgba(230,230,255,0.9),
+    40vw 85vh 8px rgba(230,230,255,0.95),
+    25vw 15vh 6px rgba(230,230,255,0.85),
+    75vw 10vh 6px rgba(230,230,255,0.8);
 
-  animation: floatParticle 20s linear infinite;
-  filter: blur(0.7px);
+  animation: floatParticle 18s linear infinite;
+  filter: blur(0.5px);
 }
 
 /* -------------------------------
-   INFERNAL MODE – Floating embers
+   INFERNAL MODE – Floating embers (brighter)
 -------------------------------- */
 body.theme-infernal .ambient-layer::before {
   content: "";
@@ -689,23 +688,22 @@ body.theme-infernal .ambient-layer::before {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: rgba(255,120,60,0.8);
+  background: rgba(255,140,80,1);
 
-  /* embers – a bit brighter */
   box-shadow:
-    10vw 85vh 8px rgba(255,120,60,0.85),
-    40vw 90vh 6px rgba(255,80,40,0.75),
-    70vw 75vh 7px rgba(255,120,60,0.8),
-    20vw 60vh 6px rgba(255,100,50,0.8),
-    55vw 30vh 8px rgba(255,140,70,0.75),
-    85vw 65vh 6px rgba(255,80,40,0.8),
-    30vw 40vh 7px rgba(255,100,50,0.75),
-    60vw 10vh 6px rgba(255,140,70,0.8),
-    90vw 20vh 7px rgba(255,120,60,0.75),
-    15vw 90vh 6px rgba(255,80,40,0.8);
+    10vw 85vh 10px rgba(255,140,80,1),
+    40vw 90vh 8px rgba(255,110,60,0.98),
+    70vw 75vh 9px rgba(255,140,80,0.98),
+    20vw 60vh 8px rgba(255,120,70,0.98),
+    55vw 30vh 10px rgba(255,160,90,0.98),
+    85vw 65vh 8px rgba(255,110,60,1),
+    30vw 40vh 9px rgba(255,120,70,0.98),
+    60vw 10vh 8px rgba(255,160,90,0.98),
+    90vw 20vh 9px rgba(255,140,80,1),
+    15vw 90vh 8px rgba(255,110,60,0.98);
 
-  animation: floatParticle 12s linear infinite;
-  filter: blur(0.6px);
+  animation: floatParticle 10s linear infinite;
+  filter: blur(0.5px);
 }
 
 /* -------------------------------
@@ -718,7 +716,6 @@ body.theme-shadow .ambient-layer::before {
   height: 34px;
   background: rgba(180,160,255,0.4);
 
-  /* silk strands – more visible */
   box-shadow:
     12vw 10vh rgba(180,160,255,0.4),
     45vw 40vh rgba(180,160,255,0.4),
@@ -739,10 +736,10 @@ body.theme-shadow .ambient-layer::after {
   position: absolute;
   inset: -10%;
   background:
-    radial-gradient(circle at 15% 15%, rgba(180,160,255,0.12) 0, transparent 55%),
-    radial-gradient(circle at 80% 30%, rgba(180,160,255,0.09) 0, transparent 60%),
-    radial-gradient(circle at 30% 80%, rgba(180,160,255,0.1) 0, transparent 55%);
-  opacity: 0.7;
+    radial-gradient(circle at 15% 15%, rgba(180,160,255,0.16) 0, transparent 55%),
+    radial-gradient(circle at 80% 30%, rgba(180,160,255,0.13) 0, transparent 60%),
+    radial-gradient(circle at 30% 80%, rgba(180,160,255,0.14) 0, transparent 55%);
+  opacity: 0.85;
   pointer-events: none;
 }
 
@@ -785,7 +782,7 @@ body.theme-shadow .ambient-layer::after {
     gap: 0.4rem;
     min-width: 170px;
     display: none; /* hidden by default */
-    z-index: 60; /* above header blur */
+    z-index: 60; /* above header blur & hero */
   }
 
   /* Show menu when nav-open class is active */

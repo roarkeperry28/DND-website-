@@ -536,7 +536,72 @@
       color: var(--accent);
     }
 
-    /* Responsive */
+    /* THEME TOGGLE BUTTON */
+
+.theme-toggle {
+  border-radius: 999px;
+  padding: 0.4rem 0.9rem;
+  border: 1px solid rgba(255,255,255,0.12);
+  background: rgba(10,10,18,0.95);
+  color: var(--muted);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-right: 0.6rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
+}
+
+.theme-toggle::before {
+  content: "●";
+  font-size: 0.7rem;
+  color: var(--accent);
+}
+
+.theme-toggle:hover {
+  transform: translateY(-1px);
+  border-color: var(--accent);
+  color: var(--text);
+}
+
+/* THEME VARIANTS */
+
+/* Infernal / Avernus mode: hotter reds, harsher contrast */
+body.theme-infernal {
+  --bg: #090205;
+  --bg-alt: #1a0508;
+  --accent: #ff5b33;
+  --accent-soft: rgba(255, 91, 51, 0.22);
+  --text: #fdf2ec;
+  --muted: #c58f87;
+  --card: #22070a;
+  --border: #5a1414;
+}
+
+/* Shadow / Underdark mode: cooler violets, deep shadows */
+body.theme-shadow {
+  --bg: #02040b;
+  --bg-alt: #050817;
+  --accent: #9c6bff;
+  --accent-soft: rgba(156, 107, 255, 0.22);
+  --text: #f4f2ff;
+  --muted: #9b9ec0;
+  --card: #0c0f24;
+  --border: #262a4b;
+}
+
+/* Optional: tweak hero background to respect themes */
+body.theme-infernal .hero-inner {
+  background: radial-gradient(circle at top, #5f1212 0, #090205 60%);
+}
+
+body.theme-shadow .hero-inner {
+  background: radial-gradient(circle at top, #181b3d 0, #02040b 60%);
+}
+
 
     @media (max-width: 900px) {
       .hero-inner {

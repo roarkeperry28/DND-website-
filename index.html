@@ -528,6 +528,49 @@
       rules &amp; setting based on Dungeons &amp; Dragons 5E.
     </p>
   </footer>
-  <script src="script.js"></script>
+  <!-- Theme toggle script -->
+<script>
+  // Theme cycling logic
+  (function () {
+    const themes = ["default", "infernal", "shadow"];
+    const themeLabels = {
+      default: "Default",
+      infernal: "Infernal",
+      shadow: "Shadow"
+    };
+
+    const body = document.body;
+    const toggleBtn = document.querySelector("[data-theme-toggle]");
+
+    if (!toggleBtn) return;
+
+    // Load saved theme, or start at default
+    const saved = localStorage.getItem("qod-theme");
+    let currentIndex = 0;
+
+    if (saved && themes.includes(saved)) {
+      currentIndex = themes.indexOf(saved);
+    }
+
+    function applyTheme(name) {
+      themes.forEach(t => body.classList.remove("theme-" + t));
+      body.classList.add("theme-" + name);
+      toggleBtn.textContent = themeLabels[name];
+      localStorage.setItem("qod-theme", name);
+    }
+
+    applyTheme(themes[currentIndex]);
+
+    toggleBtn.addEventListener("click", () => {
+      currentIndex = (currentIndex + 1) % themes.length;
+      applyTheme(themes[currentIndex]);
+    });
+  })();
+</script>
+
+<!-- Your main JS file -->
+<script src="script.js"></script>
+
 </body>
 </html>
+

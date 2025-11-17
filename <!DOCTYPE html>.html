@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Queen of Dragons – Campaign Hub</title>
+  <style>
+    :root {
+      --bg: #050509;
+      --bg-alt: #101018;
+      --accent: #e4572e;
+      --accent-soft: rgba(228, 87, 46, 0.2);
+      --text: #f5f5f7;
+      --muted: #a0a3b1;
+      --card: #151522;
+      --border: #24243a;
+      --shadow: 0 18px 45px rgba(0, 0, 0, 0.7);
+      --radius-lg: 18px;
+      --radius-sm: 10px;
+      --gap: 1.5rem;
+      --font-main: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-main);
+      background: radial-gradient(circle at top, #201020 0, #050509 55%);
+      color: var(--text);
+      line-height: 1.5;
+      scroll-behavior: smooth;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    /* Layout */
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      backdrop-filter: blur(18px);
+      background: linear-gradient(to bottom, rgba(5,5,9,0.92), rgba(5,5,9,0.65));
+      border-bottom: 1px solid rgba(255,255,255,0.04);
+    }
+
+    .nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0.8rem 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .logo span {
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      background: var(--accent);
+      box-shadow: 0 0 18px rgba(228, 87, 46, 0.8);
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 1.4rem;
+      font-size: 0.9rem;
+    }
+
+    nav a {
+      color: var(--muted);
+      padding-bottom: 0.2rem;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s ease, border-color 0.2s ease;
+    }
+
+    nav a:hover {
+      color: var(--text);
+      border-color: var(--accent);
+    }
+
+    main {
+      margin-top: 60px; /* header height */
+    }
+
+    section {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 3.5rem 1.2rem;
+    }
+
+    section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    section p.section-subtitle {
+      color: var(--muted);
+      max-width: 620px;
+      font-size: 0.95rem;
+    }
+
+    /* Hero */
+
+    .hero {
+      max-width: none;
+      padding: 0;
+    }
+
+    .hero-inner {
+      position: relative;
+      min-height: 82vh;
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 0;
+      background: radial-gradient(circle at top, #3a1111 0, #050509 60%);
+      color: var(--text);
+    }
+
+    .hero-image {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-image::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at bottom, transparent 0, rgba(5,5,9,0.7) 80%);
+    }
+
+    .hero-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: saturate(1.2) contrast(1.1);
+    }
+
+    .hero-content {
+      padding: 4.5rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1.4rem;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.1);
+      background: rgba(5,5,9,0.7);
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    .hero-title {
+      font-size: clamp(2rem, 3.2vw + 1rem, 2.8rem);
+      line-height: 1.15;
+      text-transform: uppercase;
+    }
+
+    .hero-title span {
+      color: var(--accent);
+    }
+
+    .hero-text {
+      color: var(--muted);
+      font-size: 0.97rem;
+      max-width: 520px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+    }
+
+    .btn {
+      border-radius: 999px;
+      padding: 0.7rem 1.3rem;
+      border: 1px solid transparent;
+      font-size: 0.9rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      cursor: pointer;
+      transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.1s;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #ff7043, #e4572e);
+      color: #fff;
+      box-shadow: var(--shadow);
+    }
+
+    .btn-secondary {
+      background: rgba(13,13,22,0.9);
+      border-color: rgba(255,255,255,0.09);
+      color: var(--muted);
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+      border-color: var(--accent);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin-top: 0.4rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+    }
+
+    .hero-meta span {
+      opacity: 0.85;
+    }
+
+    /* Party grid */
+
+    .party-grid {
+      margin-top: 2.2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(185px, 1fr));
+      gap: var(--gap);
+    }
+
+    .party-card {
+      background: radial-gradient(circle at top, #262034 0, #151522 60%);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .party-card img {
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+    }
+
+    .party-body {
+      padding: 0.9rem 1rem 1rem;
+    }
+
+    .party-name {
+      font-size: 1.05rem;
+      font-weight: 600;
+    }
+
+    .party-role {
+      font-size: 0.83rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      margin-top: 0.15rem;
+    }
+
+    .party-player {
+      font-size: 0.8rem;
+      margin-top: 0.35rem;
+      color: var(--muted);
+    }
+
+    .tagline {
+      margin-top: 0.45rem;
+      font-size: 0.85rem;
+      color: #e9e0ff;
+    }
+
+    /* Loot */
+
+    .loot-grid {
+      margin-top: 2.2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: var(--gap);
+    }
+
+    .loot-card {
+      background: var(--card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border);
+      padding: 1rem 1.1rem 1.1rem;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .loot-rarity {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--accent);
+      padding: 0.1rem 0.55rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      display: inline-block;
+      margin-bottom: 0.4rem;
+    }
+
+    .loot-name {
+      font-weight: 600;
+      margin-bottom: 0.15rem;
+    }
+
+    .loot-type {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 0.3rem;
+    }
+
+    .loot-text {
+      font-size: 0.85rem;
+      color: #e2e2f4;
+    }
+
+    .loot-hook {
+      margin-top: 0.4rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    /* Locations */
+
+    .locations-grid {
+      margin-top: 2.2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: var(--gap);
+    }
+
+    .location-card {
+      background: var(--card);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .location-image {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .location-image img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      transform: scale(1.03);
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .location-card:hover img {
+      transform: scale(1.08);
+      filter: contrast(1.1) saturate(1.1);
+    }
+
+    .location-body {
+      padding: 0.9rem 1rem 1.1rem;
+    }
+
+    .location-name {
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .location-tag {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--muted);
+      margin-bottom: 0.35rem;
+    }
+
+    .location-text {
+      font-size: 0.86rem;
+      color: #dee2ff;
+    }
+
+    /* Footer */
+
+    footer {
+      border-top: 1px solid rgba(255,255,255,0.06);
+      padding: 1.6rem 1.2rem 2.3rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    footer span {
+      color: var(--accent);
+    }
+
+    /* Responsive */
+
+    @media (max-width: 900px) {
+      .hero-inner {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero-image {
+        min-height: 46vh;
+      }
+      .hero-content {
+        padding: 2.6rem 1.5rem 3rem;
+      }
+      .nav-inner {
+        gap: 1rem;
+      }
+      nav ul {
+        gap: 0.7rem;
+        font-size: 0.8rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      section {
+        padding-inline: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="nav-inner">
+      <div class="logo">
+        <span></span> Queen of Dragons
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#party">Party</a></li>
+          <li><a href="#loot">Loot</a></li>
+          <li><a href="#locations">Places</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO / COVER -->
+    <section class="hero" id="top">
+      <div class="hero-inner">
+        <div class="hero-image">
+          <!-- Replace src with your Tiamat/Avernus cover art file -->
+          <img src="images/cover-tiamat-avernus.jpg" alt="Tiamat rising over a hellish citadel as the party stands against her">
+        </div>
+        <div class="hero-content">
+          <div class="hero-tag">
+            <span>5E Campaign</span> • Stormwreck → Tyranny → Avernus → Underdark
+          </div>
+          <h1 class="hero-title">
+            <span>Queen of Dragons</span><br />
+            and the Chains of the Nine Hells
+          </h1>
+          <p class="hero-text">
+            A long-form Dungeons &amp; Dragons saga following a band of unlikely heroes
+            from the shattered shores of Stormwreck Isle to the burning skies of Avernus,
+            the rise of Tiamat, and the web-choked depths of the Underdark where Lolth
+            weaves a new cocoon of divinity.
+          </p>
+          <div class="hero-buttons">
+            <a href="#party" class="btn btn-primary">Meet the Party</a>
+            <a href="#locations" class="btn btn-secondary">Explore the World</a>
+          </div>
+          <div class="hero-meta">
+            <span>Level 1 → 15</span>
+            <span>Dragon Cults &amp; Hellscapes</span>
+            <span>Party Size: 7–8</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARTY -->
+    <section id="party">
+      <h2>The Party</h2>
+      <p class="section-subtitle">
+        Eight souls pulled together by fate (and questionable ship bookings). Each carries
+        secrets, patrons, and scars that the cults of Tiamat and the devils of Avernus
+        would gladly exploit.
+      </p>
+
+      <div class="party-grid">
+        <!-- Lyrixia -->
+        <article class="party-card">
+          <img src="images/lyrixia.jpg" alt="Lyrixia, a purple tiefling bard with a flute and golden jewelry">
+          <div class="party-body">
+            <div class="party-name">Lyrixia</div>
+            <div class="party-role">Lvl 8 • Tiefling • Bard (College of Lore)</div>
+            <div class="party-player">Player: Alicewnr</div>
+            <p class="tagline">
+              Glamour-wreathed storyteller whose melodies carry secrets from archfey and
+              celestial patrons alike — the soundtrack of both revolutions and regrets.
+            </p>
+          </div>
+        </article>
+
+        <!-- Ghost Hands -->
+        <article class="party-card">
+          <img src="images/ghost-hands.jpg" alt="Ghost Hands, a pale elf rogue in black leather with a dagger and sickle">
+          <div class="party-body">
+            <div class="party-name">Ghost Hands</div>
+            <div class="party-role">Lvl 8 • Elf • Rogue (Phantom)</div>
+            <div class="party-player">Player: qmt7brmrqm</div>
+            <p class="tagline">
+              A nameless shadow walking beside the dead. Every whisper from beyond drags
+              her closer to the cult that may know how — or why — she truly died.
+            </p>
+          </div>
+        </article>
+
+        <!-- Teki -->
+        <article class="party-card">
+          <img src="images/teki.jpg" alt="Teki, a fire-haired genasi barbarian with blazing eyes and heavy weapons">
+          <div class="party-body">
+            <div class="party-name">Teki</div>
+            <div class="party-role">Lvl 8 • Fire Genasi • Barbarian (Path of Wild Magic)</div>
+            <div class="party-player">Player: nickmueller9921</div>
+            <p class="tagline">
+              Born in an eruption, destined to burn the Cult of the Hollow Flame from the map.
+              Every rage shakes the world — and the weave — a little more.
+            </p>
+          </div>
+        </article>
+
+        <!-- Goose Honk -->
+        <article class="party-card">
+          <img src="images/goose-honk.jpg" alt="Goose Honk, a smiling halfling paladin in bright armor">
+          <div class="party-body">
+            <div class="party-name">Goose Honk</div>
+            <div class="party-role">Lvl 8 • Halfling • Paladin (Oath of Redemption)</div>
+            <div class="party-player">Player: AngusQueen</div>
+            <p class="tagline">
+              A tiny paladin with a radiant laugh and a vow to save everyone she can —
+              even monsters. Mercy is her weapon, sunlight her shield.
+            </p>
+          </div>
+        </article>
+
+        <!-- ZOX -->
+        <article class="party-card">
+          <img src="images/zox.jpg" alt="ZOX, an eerie celestial-void being with white skin, black eyes and golden fangs">
+          <div class="party-body">
+            <div class="party-name">ZOX</div>
+            <div class="party-role">Lvl 8 • Aasimar • Warlock (Great Old One)</div>
+            <div class="party-player">Player: PUPAxDearum</div>
+            <p class="tagline">
+              A living sigil of something that watched the multiverse being born. Their
+              patron is neither demon nor god — but something even dragons fear to name.
+            </p>
+          </div>
+        </article>
+
+        <!-- Elara Sunfang -->
+        <article class="party-card">
+          <img src="images/elara-sunfang.jpg" alt="Elara, an elf in black leathers holding twin daggers">
+          <div class="party-body">
+            <div class="party-name">Elara Sunfang</div>
+            <div class="party-role">Lvl 8 • Elf • Blood Hunter (Order of the Lycan)</div>
+            <div class="party-player">Player: FeminemXMnM</div>
+            <p class="tagline">
+              A cursed hunter who drinks moonlight and monster blood in equal measure.
+              Control is a knife’s edge, and the wolf is always hungry.
+            </p>
+          </div>
+        </article>
+
+        <!-- Syla Vaelora -->
+        <article class="party-card">
+          <img src="images/syla-vaelora.jpg" alt="Syla, an elf ranger with a green hood and bow in a dark forest">
+          <div class="party-body">
+            <div class="party-name">Syla Vaelora</div>
+            <div class="party-role">Lvl 8 • Elf • Ranger (Fey Wanderer)</div>
+            <div class="party-player">Player: Jules4422</div>
+            <p class="tagline">
+              A ranger with one foot in the mortal woods and one in the Feywild. She
+              reads omens in roots and starlight — and the omens say something is very wrong.
+            </p>
+          </div>
+        </article>
+
+        <!-- Future PC placeholder -->
+        <article class="party-card">
+          <img src="images/mystery-hero.jpg" alt="Shadowed figure standing at the edge of a portal">
+          <div class="party-body">
+            <div class="party-name">???</div>
+            <div class="party-role">Future Ally • To Be Revealed</div>
+            <div class="party-player">Player: TBA</div>
+            <p class="tagline">
+              A name whispered in prophecies and in enemy dreams. Their arrival will tip
+              the scales — or snap them.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- LOOT & REWARDS -->
+    <section id="loot">
+      <h2>Relics & Rewards</h2>
+      <p class="section-subtitle">
+        Not just +1 swords. These are story-shaped treasures tied to dragons, devils, and
+        the threads of fate around your party. Use them as inspiration for loot drops or
+        long-term quest rewards.
+      </p>
+
+      <div class="loot-grid">
+        <article class="loot-card">
+          <div class="loot-rarity">Rare</div>
+          <div class="loot-name">Echo-Flute of the Hollow Star</div>
+          <div class="loot-type">Instrument (requires attunement by Lyrixia)</div>
+          <p class="loot-text">
+            Silver flute inlaid with faint constellations. Once per long rest, Lyrixia can
+            weave a performance that echoes across planes, granting allies advantage on
+            a key encounter — or letting a secret message ride the song to a distant ear.
+          </p>
+          <p class="loot-hook">
+            Found in a ruined dragon shrine, still humming with forgotten hymns.
+          </p>
+        </article>
+
+        <article class="loot-card">
+          <div class="loot-rarity">Very Rare</div>
+          <div class="loot-name">Blisterbark, Cursed Infernal Musket</div>
+          <div class="loot-type">Weapon (attunement by Ghost Hands)</div>
+          <p class="loot-text">
+            A talking musket forged in the Nine Hells, sarcastic and bloodthirsty. Deals
+            extra necrotic or fire damage and can whisper secrets from souls it has slain —
+            but it hungrily tempts its wielder toward darker choices.
+          </p>
+          <p class="loot-hook">
+            Upgrades as Ghost Hands confronts her own death and the cult that caused it.
+          </p>
+        </article>
+
+        <article class="loot-card">
+          <div class="loot-rarity">Rare</div>
+          <div class="loot-name">Emberblood Greataxe</div>
+          <div class="loot-type">Weapon (attunement by Teki)</div>
+          <p class="loot-text">
+            A brutal axe whose blade drips molten light. When Teki rages, the weapon erupts
+            in wild fire, sometimes bending reality around his swings — teleport sparks,
+            sudden bursts of flame, or searing afterimages.
+          </p>
+          <p class="loot-hook">
+            A relic “prophesied” by the Cult of the Hollow Flame, reclaimed for vengeance.
+          </p>
+        </article>
+
+        <article class="loot-card">
+          <div class="loot-rarity">Rare</div>
+          <div class="loot-name">Halo of the Gentle Shield</div>
+          <div class="loot-type">Wondrous item (attunement by Goose Honk)</div>
+          <p class="loot-text">
+            A soft golden halo that appears when Goose stands between an enemy and an ally.
+            Grants powerful protective reactions and allows her to turn killing blows into
+            unconsciousness instead — if the attacker can be redeemed.
+          </p>
+          <p class="loot-hook">
+            Manifested during a moment when Goose chooses mercy over victory.
+          </p>
+        </article>
+
+        <article class="loot-card">
+          <div class="loot-rarity">Very Rare</div>
+          <div class="loot-name">Cocoon-Thread Cloak</div>
+          <div class="loot-type">Cloak (attunement by Syla or Elara)</div>
+          <p class="loot-text">
+            Woven from silvery strands stolen from Lolth’s evolving cocoon. Grants
+            shadowstep through web-like cracks in reality, but occasional whispers
+            urge the wearer to abandon friends for “greater hunts”.
+          </p>
+          <p class="loot-hook">
+            Harvested in a desperate raid into the Underdark, beneath Lolth’s gaze.
+          </p>
+        </article>
+
+        <article class="loot-card">
+          <div class="loot-rarity">Legendary</div>
+          <div class="loot-name">Void-Sigil Grimoire</div>
+          <div class="loot-type">Wondrous item (attunement by ZOX)</div>
+          <p class="loot-text">
+            A living book whose pages are starless night. Grants access to reality-bending
+            invocations, telepathy across planes, and glimpses of the moment Tiamat first
+            opened her eyes — but pages sometimes write back.
+          </p>
+          <p class="loot-hook">
+            The grimoire awakens fully after ZOX makes a choice that even their patron
+            cannot easily predict.
+          </p>
+        </article>
+
+        <article class="loot-card">
+          <div class="loot-rarity">Legendary</div>
+          <div class="loot-name">Shard of the Broken Chain</div>
+          <div class="loot-type">Campaign Relic (party attunement)</div>
+          <p class="loot-text">
+            A fragment of the infernal bindings that once held Tiamat in Avernus. When
+            carried by the whole party, it can weaken dragon cult rituals, disrupt devil
+            contracts, and — at the very end — tip the scales in the final confrontation.
+          </p>
+          <p class="loot-hook">
+            Assemble all fragments over the course of the campaign to unlock its true power.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- LOCATIONS -->
+    <section id="locations">
+      <h2>Places They Will See</h2>
+      <p class="section-subtitle">
+        From storm-lashed monasteries to skyships, hellscapes, and spider-haunted caverns.
+        Swap in your own text or art where you like — these are just styled placeholders
+        that fit your campaign’s tone.
+      </p>
+
+      <div class="locations-grid">
+        <!-- Skyship -->
+        <article class="location-card">
+          <div class="location-image">
+            <img src="images/skyship.jpg" alt="A majestic sailing ship flying in a golden sky">
+          </div>
+          <div class="location-body">
+            <div class="location-name">The Dawn of Ashes</div>
+            <div class="location-tag">Skyship • Transition to Tyranny of Dragons</div>
+            <p class="location-text">
+              The enchanted ship that carries the party from the burning of Greenest into
+              the wider war. Its hull remembers every storm, and its crew has more secrets
+              than the cargo hold.
+            </p>
+          </div>
+        </article>
+
+        <!-- Avernus Warfront -->
+        <article class="location-card">
+          <div class="location-image">
+            <img src="images/avernus-warfront.jpg" alt="A battlefield in Avernus with rivers of lava and infernal war machines">
+          </div>
+          <div class="location-body">
+            <div class="location-name">The Scars of Avernus</div>
+            <div class="location-tag">First Layer of Hell • Future Arc</div>
+            <p class="location-text">
+              A wasteland of shattered fortresses, infernal war machines, and chains that
+              vanish into the blood-red sky. Here, devils fight not just demons — but each
+              other, for Zariel’s fading favor.
+            </p>
+          </div>
+        </article>
+
+        <!-- Underdark / Lolth Cocoon -->
+        <article class="location-card">
+          <div class="location-image">
+            <img src="images/lolth-cocoon.jpg" alt="A vast glowing cocoon suspended in a cavern full of webs">
+          </div>
+          <div class="location-body">
+            <div class="location-name">The Cocoon of Silent Webs</div>
+            <div class="location-tag">Underdark • Lolth’s Awakening</div>
+            <p class="location-text">
+              Far below the world, a god-spider dreams inside a shifting cocoon of silk and
+              shadow. Every strand pulls at fate above — drow cities, surface wars, even
+              the dragons of the world.
+            </p>
+          </div>
+        </article>
+
+        <!-- Dragon’s Rest / Stormwreck -->
+        <article class="location-card">
+          <div class="location-image">
+            <img src="images/stormwreck-isle.jpg" alt="Stormy cliffs and a monastery overlooking a raging sea">
+          </div>
+          <div class="location-body">
+            <div class="location-name">Dragon’s Rest, Stormwreck Isle</div>
+            <div class="location-tag">Prologue • Where it All Began</div>
+            <p class="location-text">
+              Salt-stung stone, dragon-blessed winds, and the first whispers of the Hollow
+              Flame. The monastery’s quiet halls hide visions that won’t stop echoing.
+            </p>
+          </div>
+        </article>
+
+        <!-- Well of Dragons -->
+        <article class="location-card">
+          <div class="location-image">
+            <img src="images/well-of-dragons.jpg" alt="A volcanic caldera with armies and a rising five-headed dragon">
+          </div>
+          <div class="location-body">
+            <div class="location-name">The Well of Dragons</div>
+            <div class="location-tag">Tyranny of Dragons • Final Battle</div>
+            <p class="location-text">
+              A mass grave of dragons turned into a colossal altar. Here, cultists dare to
+              tear open reality and crown Tiamat Queen of Dragons once more — unless your
+              party breaks the ritual first.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      Homebrew campaign hub for <span>Queen of Dragons</span>. Artwork placeholders by you + AI;
+      rules &amp; setting based on Dungeons &amp; Dragons 5E.
+    </p>
+  </footer>
+</body>
+</html>

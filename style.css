@@ -24,11 +24,12 @@
 
 body {
   font-family: var(--font-main);
-  background: radial-gradient(circle at top, #201020 0, #050509 55%);
+  background: radial-gradient(circle at top, var(--bg-alt) 0, var(--bg) 55%);
   color: var(--text);
   line-height: 1.5;
   scroll-behavior: smooth;
 }
+
 
 a {
   color: inherit;

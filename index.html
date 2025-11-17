@@ -5,45 +5,46 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Queen of Dragons – Campaign Hub</title>
   <link rel="stylesheet" href="style.css" />
+  <!-- Load main JS once, deferred -->
   <script src="script.js" defer></script>
 </head>
   
 <body>
   <!-- Ambient effects container -->
-<div class="ambient-layer"></div>
+  <div class="ambient-layer"></div>
+
   <header>
-  <div class="nav-inner">
-    <div class="logo">
-      <span></span> Queen of Dragons
+    <div class="nav-inner">
+      <div class="logo">
+        <span></span> Queen of Dragons
+      </div>
+
+      <!-- Theme toggle button -->
+      <button
+        class="theme-toggle"
+        type="button"
+        data-theme-toggle
+        aria-label="Change color theme"
+      >
+        Infernal
+      </button>
+
+      <!-- Hamburger button for mobile -->
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+
+      <nav class="main-nav">
+        <ul>
+          <li><a href="#party">Party</a></li>
+          <li><a href="#loot">Loot</a></li>
+          <li><a href="#locations">Places</a></li>
+        </ul>
+      </nav>
     </div>
-
-    <!-- Theme toggle button -->
-    <button
-      class="theme-toggle"
-      type="button"
-      data-theme-toggle
-      aria-label="Change color theme"
-    >
-      Infernal
-    </button>
-
-    <!-- Hamburger button for mobile -->
-    <button class="nav-toggle" aria-label="Toggle navigation">
-      <span class="nav-toggle-bar"></span>
-      <span class="nav-toggle-bar"></span>
-      <span class="nav-toggle-bar"></span>
-    </button>
-
-    <nav class="main-nav">
-      <ul>
-        <li><a href="#party">Party</a></li>
-        <li><a href="#loot">Loot</a></li>
-        <li><a href="#locations">Places</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
+  </header>
 
   <main>
     <!-- HERO / COVER -->
@@ -529,49 +530,5 @@
       rules &amp; setting based on Dungeons &amp; Dragons 5E.
     </p>
   </footer>
-  <!-- Theme toggle script -->
-<script>
-  // Theme cycling logic
-  (function () {
-    const themes = ["default", "infernal", "shadow"];
-    const themeLabels = {
-      default: "Default",
-      infernal: "Infernal",
-      shadow: "Shadow"
-    };
-
-    const body = document.body;
-    const toggleBtn = document.querySelector("[data-theme-toggle]");
-
-    if (!toggleBtn) return;
-
-    // Load saved theme, or start at default
-    const saved = localStorage.getItem("qod-theme");
-    let currentIndex = 0;
-
-    if (saved && themes.includes(saved)) {
-      currentIndex = themes.indexOf(saved);
-    }
-
-    function applyTheme(name) {
-      themes.forEach(t => body.classList.remove("theme-" + t));
-      body.classList.add("theme-" + name);
-      toggleBtn.textContent = themeLabels[name];
-      localStorage.setItem("qod-theme", name);
-    }
-
-    applyTheme(themes[currentIndex]);
-
-    toggleBtn.addEventListener("click", () => {
-      currentIndex = (currentIndex + 1) % themes.length;
-      applyTheme(themes[currentIndex]);
-    });
-  })();
-</script>
-
-<!-- Your main JS file -->
-<script src="script.js"></script>
-
 </body>
 </html>
-

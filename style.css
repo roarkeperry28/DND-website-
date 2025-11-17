@@ -555,6 +555,39 @@
         gap: 0.7rem;
         font-size: 0.8rem;
       }
+          /* Show hamburger on mobile */
+.nav-toggle {
+  display: block;
+}
+
+/* Turn nav into a dropdown panel */
+.main-nav ul {
+  position: absolute;
+  top: 100%;
+  right: 1.2rem;
+  margin-top: 0.6rem;
+  padding: 0.7rem 0.9rem;
+  border-radius: 14px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(5,5,12,0.98);
+  box-shadow: var(--shadow);
+  flex-direction: column;
+  gap: 0.4rem;
+  min-width: 170px;
+  display: none; /* hidden by default */
+}
+
+/* Show menu when nav-open class is active */
+.nav-open .main-nav ul {
+  display: flex;
+}
+
+.main-nav a {
+  font-size: 0.85rem;
+  padding: 0.2rem 0.1rem;
+  border-bottom: none;
+}
+
     }
 
     @media (max-width: 640px) {

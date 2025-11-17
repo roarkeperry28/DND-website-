@@ -1,53 +1,67 @@
 document.addEventListener("DOMContentLoaded", () => {
+  const body = document.body;
+
   // ---------- Mobile nav toggle ----------
   const navToggle = document.querySelector(".nav-toggle");
+  const mainNav = document.querySelector(".main-nav");
   const navLinks = document.querySelectorAll(".main-nav a");
 
-  if (navToggle) {
+  if (navToggle && mainNav) {
     navToggle.addEventListener("click", () => {
-      document.body.classList.toggle("nav-open");
+      const isOpen = body.classList.toggle("nav-open");
+      navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
+    });
+
+    // Close nav when a link is tapped
+    navLinks.forEach(link => {
+      link.addEventListener("click", () => {
+        body.classList.remove("nav-open");
+        navToggle.setAttribute("aria-expanded", "false");
+      });
     });
   }
 
-  navLinks.forEach(link => {
-    link.addEventListener("click", () => {
-      document.body.classList.remove("nav-open");
-    });
-  });
-
-  // ---------- Theme toggle ----------
-  const body = document.body;
-  const themeToggle = document.querySelector(".theme-toggle");
-
+  // ---------- Theme toggle with localStorage ----------
   const themes = ["default", "infernal", "shadow"];
-  let currentIndex = 0; // 0 = Default, 1 = Infernal, 2 = Shadow
+  const themeLabels = {
+    default: "Default",
+    infernal: "Infernal",
+    shadow: "Shadow"
+  };
 
-  function applyTheme() {
-    // Remove old theme classes
-    body.classList.remove("theme-infernal", "theme-shadow");
+  const toggleBtn = document.querySelector("[data-theme-toggle]");
+  if (!toggleBtn) return;
 
-    const currentTheme = themes[currentIndex];
+  // Load saved theme or default
+  const savedTheme = localStorage.getItem("qod-theme");
+  let currentIndex = 0;
 
-    if (currentTheme === "infernal") {
-      body.classList.add("theme-infernal");
-      themeToggle.textContent = "Infernal";
-    } else if (currentTheme === "shadow") {
-      body.classList.add("theme-shadow");
-      themeToggle.textContent = "Shadow";
-    } else {
-      themeToggle.textContent = "Default";
-    }
+  if (savedTheme && themes.includes(savedTheme)) {
+    currentIndex = themes.indexOf(savedTheme);
   }
 
-  if (themeToggle) {
-    themeToggle.addEventListener("click", () => {
-      currentIndex = (currentIndex + 1) % themes.length;
-      applyTheme();
-    });
+  function applyTheme(name) {
+    // Remove all theme-* classes
+    themes.forEach(t => body.classList.remove("theme-" + t));
 
-    // If you want to start in Infernal instead of Default:
-    // currentIndex = 1;
-    applyTheme();
+    // Add the current one
+    body.classList.add("theme-" + name);
+
+    // Update button label
+    toggleBtn.textContent = themeLabels[name];
+
+    // Save
+    localStorage.setItem("qod-theme", name);
   }
+
+  // Initial theme
+  applyTheme(themes[currentIndex]);
+
+  // Cycle themes on click
+  toggleBtn.addEventListener("click", () => {
+    currentIndex = (currentIndex + 1) % themes.length;
+    applyTheme(themes[currentIndex]);
+  });
 });
+
 

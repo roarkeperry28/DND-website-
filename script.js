@@ -1,9 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
   const body = document.body;
 
-  /* --------------------------------------------------
-     MOBILE NAV TOGGLE
-  -------------------------------------------------- */
+  // ---------- Mobile nav toggle ----------
   const navToggle = document.querySelector(".nav-toggle");
   const mainNav = document.querySelector(".main-nav");
   const navLinks = document.querySelectorAll(".main-nav a");
@@ -14,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
       navToggle.setAttribute("aria-expanded", isOpen ? "true" : "false");
     });
 
+    // Close nav when a link is tapped
     navLinks.forEach(link => {
       link.addEventListener("click", () => {
         body.classList.remove("nav-open");
@@ -22,9 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  /* --------------------------------------------------
-     THEME TOGGLE (localStorage)
-  -------------------------------------------------- */
+  // ---------- Theme toggle with localStorage ----------
   const themes = ["default", "infernal", "shadow"];
   const themeLabels = {
     default: "Default",
@@ -35,6 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const toggleBtn = document.querySelector("[data-theme-toggle]");
   if (!toggleBtn) return;
 
+  // Load saved theme or default
   const savedTheme = localStorage.getItem("qod-theme");
   let currentIndex = 0;
 
@@ -43,40 +41,27 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function applyTheme(name) {
+    // Remove all theme-* classes
     themes.forEach(t => body.classList.remove("theme-" + t));
+
+    // Add the current one
     body.classList.add("theme-" + name);
 
+    // Update button label
     toggleBtn.textContent = themeLabels[name];
+
+    // Save
     localStorage.setItem("qod-theme", name);
   }
 
+  // Initial theme
   applyTheme(themes[currentIndex]);
 
+  // Cycle themes on click
   toggleBtn.addEventListener("click", () => {
     currentIndex = (currentIndex + 1) % themes.length;
     applyTheme(themes[currentIndex]);
   });
-
-  /* --------------------------------------------------
-     PARALLAX SCROLLING (Hero Image)
-     Makes the big top image move at 40% scroll speed
-  -------------------------------------------------- */
-  const heroImage = document.querySelector(".hero-image img");
-
-  if (heroImage) {
-    let lastScroll = 0;
-
-    window.addEventListener("scroll", () => {
-      const scrollY = window.scrollY;
-
-      // Smooth parallax: moves slightly slower than scroll
-      const offset = scrollY * 0.4;
-
-      // Only transform Y for performance
-      heroImage.style.transform = `translateY(${offset}px) scale(1.05)`;
-
-      lastScroll = scrollY;
-    });
-  }
 });
+
 

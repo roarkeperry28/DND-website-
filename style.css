@@ -233,6 +233,7 @@ section p.section-subtitle {
 .hero-image {
   position: relative;
   overflow: hidden;
+  will-change: transform; /* added for parallax smoothness */
 }
 
 .hero-image::after {
@@ -627,6 +628,7 @@ body.theme-shadow .hero-inner {
   pointer-events: none;
   z-index: 0;
   overflow: hidden;
+  will-change: transform; /* added for parallax smoothness */
 }
 
 /* Keep everything above ambient layer, but don't override header's z-index */
@@ -806,4 +808,3 @@ body.theme-shadow .ambient-layer::after {
     padding-inline: 1rem;
   }
 }
-

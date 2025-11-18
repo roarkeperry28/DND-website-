@@ -1,1 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Queen of Dragons – World Map</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Load main JS once, deferred -->
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <!-- Ambient effects container -->
+  <div class="ambient-layer"></div>
+
+  <header>
+    <div class="nav-inner">
+      <div class="logo">
+        <span></span> Queen of Dragons
+      </div>
+
+      <!-- Theme toggle button -->
+      <button
+        class="theme-toggle"
+        type="button"
+        data-theme-toggle
+        aria-label="Change color theme"
+      >
+        Infernal
+      </button>
+
+      <!-- Hamburger button for mobile -->
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="party.html">Party</a></li>
+          <li><a href="loot.html">Loot</a></li>
+          <li><a href="locations.html">Places</a></li>
+          <li><a href="sessions.html">Sessions</a></li>
+          <li><a href="world-map.html" aria-current="page">World Map</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO / COVER -->
+    <section class="hero" id="top">
+      <div class="hero-inner">
+        <div class="hero-image">
+          <!-- Use your panoramic map image here -->
+          <img src="images/hero-locations.jpg" alt="A sweeping fantasy map of coasts, mountains, deserts and forests">
+        </div>
+        <div class="hero-content">
+          <div class="hero-tag">
+            <span>World Map</span> • Stormwreck → Greenest → Avernus → Underdark
+          </div>
+          <h1 class="hero-title">
+            <span>Paths Through Flame</span><br />
+            A Map of Their Journey
+          </h1>
+          <p class="hero-text">
+            Track where you’ve been and where you’re going. Hover or tap the map markers
+            to see quick lore about key locations: Stormwreck Isle, the town of Greennest,
+            the infernal battlefields of Avernus, and the lightless caverns of the Underdark.
+          </p>
+          <div class="hero-buttons">
+            <a href="#world-map" class="btn btn-primary">Open the Map</a>
+            <a href="sessions.html" class="btn btn-secondary">Jump to Sessions</a>
+          </div>
+          <div class="hero-meta">
+            <span>Player-Friendly</span>
+            <span>No Future Spoilers</span>
+            <span>Updated as You Travel</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE WORLD MAP -->
+    <section id="world-map" class="world-map-section">
+      <h2>Interactive World Map</h2>
+      <p class="section-subtitle">
+        Hover or tap on each marker to see a short lore blurb and remember why that
+        place matters to the story.
+      </p>
+
+      <div class="world-map-layout">
+        <!-- MAP + HOTSPOTS -->
+        <div class="world-map-wrapper">
+          <img
+            src="images/hero-locations.jpg"
+            alt="A panoramic fantasy map showing coasts, plains, mountains, deserts, and distant infernal skies"
+            class="world-map-image"
+          />
+
+          <!-- Stormwreck Isle -->
+          <button
+            class="map-marker marker-stormwreck"
+            data-location="stormwreck"
+            aria-label="Stormwreck Isle"
+          >
+            <span class="marker-dot"></span>
+          </button>
+
+          <!-- Greenest -->
+          <button
+            class="map-marker marker-greenest"
+            data-location="greenest"
+            aria-label="Greenest"
+          >
+            <span class="marker-dot"></span>
+          </button>
+
+          <!-- Avernus -->
+          <button
+            class="map-marker marker-avernus"
+            data-location="avernus"
+            aria-label="Avernus"
+          >
+            <span class="marker-dot"></span>
+          </button>
+
+          <!-- Underdark -->
+          <button
+            class="map-marker marker-underdark"
+            data-location="underdark"
+            aria-label="Underdark"
+          >
+            <span class="marker-dot"></span>
+          </button>
+        </div>
+
+        <!-- INFO PANEL -->
+        <aside class="world-map-info" aria-live="polite">
+          <h3 id="map-location-name">Hover a marker</h3>
+          <p id="map-location-blurb">
+            Move your mouse over (or tap) one of the glowing markers on the map to see
+            a short lore snippet about that location.
+          </p>
+          <ul id="map-location-tags" class="map-location-tags">
+            <li>Story Status: Unknown</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      Homebrew campaign hub for <span>Queen of Dragons</span>. Artwork placeholders by you + AI;
+      rules &amp; setting based on Dungeons &amp; Dragons 5E.
+    </p>
+  </footer>
+</body>
+</html>
 

@@ -1,1 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Queen of Dragons – The Party</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
+</head>
+  
+<body>
+  <!-- Ambient effects container -->
+  <div class="ambient-layer"></div>
 
+  <header>
+    <div class="nav-inner">
+      <div class="logo">
+        <span></span> Queen of Dragons
+      </div>
+
+      <!-- Theme toggle button -->
+      <button
+        class="theme-toggle"
+        type="button"
+        data-theme-toggle
+        aria-label="Change color theme"
+      >
+        Infernal
+      </button>
+
+      <!-- Hamburger button for mobile -->
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="party.html">Party</a></li>
+          <li><a href="loot.html">Loot</a></li>
+          <li><a href="locations.html">Places</a></li>
+          <li><a href="sessions.html">Sessions</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO / COVER -->
+    <section class="hero" id="top">
+      <div class="hero-inner">
+        <div class="hero-image">
+          <img src="images/cover-tiamat-avernus.jpg" alt="Tiamat rising over a hellish citadel as the party stands against her">
+        </div>
+        <div class="hero-content">
+          <div class="hero-tag">
+            <span>5E Campaign</span> • Meet the Heroes of the Saga
+          </div>
+          <h1 class="hero-title">
+            <span>The Party</span><br />
+            Souls Bound by Dragons, Devils, and Fate
+          </h1>
+          <p class="hero-text">
+            From Stormwreck Isle to Avernus and the Underdark, this is the core of
+            <em>Queen of Dragons</em> — the bards, hunters, paladins, warlocks, and rogues
+            who keep throwing themselves between the world and the apocalypse.
+          </p>
+          <div class="hero-buttons">
+            <a href="#party" class="btn btn-primary">View All Heroes</a>
+            <a href="index.html#top" class="btn btn-secondary">Back to Campaign Hub</a>
+          </div>
+          <div class="hero-meta">
+            <span>Level 8 (current)</span>
+            <span>Party Size: 7–8</span>
+            <span>Stormwreck → Tyranny → Avernus → Underdark</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARTY -->
+    <section id="party">
+      <h2>The Party</h2>
+      <p class="section-subtitle">
+        Eight souls pulled together by fate (and questionable ship bookings). Each carries
+        secrets, patrons, and scars that the cults of Tiamat and the devils of Avernus
+        would gladly exploit.
+      </p>
+
+      <div class="party-grid">
+        <!-- Lyrixia -->
+        <article class="party-card">
+          <img src="images/lyrixia.jpg" alt="Lyrixia, a purple tiefling bard with a flute and golden jewelry">
+          <div class="party-body">
+            <div class="party-name">Lyrixia</div>
+            <div class="party-role">Lvl 8 • Tiefling • Bard (College of Lore)</div>
+            <div class="party-player">Player: Alicewnr</div>
+            <p class="tagline">
+              Glamour-wreathed storyteller whose melodies carry secrets from archfey and
+              celestial patrons alike — the soundtrack of both revolutions and regrets.
+            </p>
+          </div>
+        </article>
+
+        <!-- Ghost Hands -->
+        <article class="party-card">
+          <img src="images/ghost-hands.jpg" alt="Ghost Hands, a pale elf rogue in black leather with a dagger and sickle">
+          <div class="party-body">
+            <div class="party-name">Ghost Hands</div>
+            <div class="party-role">Lvl 8 • Elf • Rogue (Phantom)</div>
+            <div class="party-player">Player: qmt7brmrqm</div>
+            <p class="tagline">
+              A nameless shadow walking beside the dead. Every whisper from beyond drags
+              her closer to the cult that may know how — or why — she truly died.
+            </p>
+          </div>
+        </article>
+
+        <!-- Teki -->
+        <article class="party-card">
+          <img src="images/teki.jpg" alt="Teki, a fire-haired genasi barbarian with blazing eyes and heavy weapons">
+          <div class="party-body">
+            <div class="party-name">Teki</div>
+            <div class="party-role">Lvl 8 • Fire Genasi • Barbarian (Path of Wild Magic)</div>
+            <div class="party-player">Player: nickmueller9921</div>
+            <p class="tagline">
+              Born in an eruption, destined to burn the Cult of the Hollow Flame from the map.
+              Every rage shakes the world — and the weave — a little more.
+            </p>
+          </div>
+        </article>
+
+        <!-- Goose Honk -->
+        <article class="party-card">
+          <img src="images/goose-honk.jpg" alt="Goose Honk, a smiling halfling paladin in bright armor">
+          <div class="party-body">
+            <div class="party-name">Goose Honk</div>
+            <div class="party-role">Lvl 8 • Halfling • Paladin (Oath of Redemption)</div>
+            <div class="party-player">Player: AngusQueen</div>
+            <p class="tagline">
+              A tiny paladin with a radiant laugh and a vow to save everyone she can —
+              even monsters. Mercy is her weapon, sunlight her shield.
+            </p>
+          </div>
+        </article>
+
+        <!-- ZOX -->
+        <article class="party-card">
+          <img src="images/zox.jpg" alt="ZOX, an eerie celestial-void being with white skin, black eyes and golden fangs">
+          <div class="party-body">
+            <div class="party-name">ZOX</div>
+            <div class="party-role">Lvl 8 • Aasimar • Warlock (Great Old One)</div>
+            <div class="party-player">Player: PUPAxDearum</div>
+            <p class="tagline">
+              A living sigil of something that watched the multiverse being born. Their
+              patron is neither demon nor god — but something even dragons fear to name.
+            </p>
+          </div>
+        </article>
+
+        <!-- Elara Sunfang -->
+        <article class="party-card">
+          <img src="images/elara-sunfang.jpg" alt="Elara, an elf in black leathers holding twin daggers">
+          <div class="party-body">
+            <div class="party-name">Elara Sunfang</div>
+            <div class="party-role">Lvl 8 • Elf • Blood Hunter (Order of the Lycan)</div>
+            <div class="party-player">Player: FeminemXMnM</div>
+            <p class="tagline">
+              A cursed hunter who drinks moonlight and monster blood in equal measure.
+              Control is a knife’s edge, and the wolf is always hungry.
+            </p>
+          </div>
+        </article>
+
+        <!-- Syla Vaelora -->
+        <article class="party-card">
+          <img src="images/syla-vaelora.jpg" alt="Syla, an elf ranger with a green hood and bow in a dark forest">
+          <div class="party-body">
+            <div class="party-name">Syla Vaelora</div>
+            <div class="party-role">Lvl 8 • Elf • Ranger (Fey Wanderer)</div>
+            <div class="party-player">Player: Jules4422</div>
+            <p class="tagline">
+              A ranger with one foot in the mortal woods and one in the Feywild. She
+              reads omens in roots and starlight — and the omens say something is very wrong.
+            </p>
+          </div>
+        </article>
+
+        <!-- Future PC placeholder -->
+        <article class="party-card">
+          <img src="images/mystery-hero.jpg" alt="Shadowed figure standing at the edge of a portal">
+          <div class="party-body">
+            <div class="party-name">???</div>
+            <div class="party-role">Future Ally • To Be Revealed</div>
+            <div class="party-player">Player: TBA</div>
+            <p class="tagline">
+              A name whispered in prophecies and in enemy dreams. Their arrival will tip
+              the scales — or snap them.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      Homebrew campaign hub for <span>Queen of Dragons</span>. Artwork placeholders by you + AI;
+      rules &amp; setting based on Dungeons &amp; Dragons 5E.
+    </p>
+  </footer>
+</body>
+</html>

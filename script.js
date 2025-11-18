@@ -63,15 +63,6 @@ document.addEventListener("DOMContentLoaded", () => {
   };
 
   const toggleBtn = document.querySelector("[data-theme-toggle]");
-  if (!toggleBtn) return;
-
-  // Load saved theme or default
-  const savedTheme = localStorage.getItem("qod-theme");
-  let currentIndex = 0;
-
-  if (savedTheme && themes.includes(savedTheme)) {
-    currentIndex = themes.indexOf(savedTheme);
-  }
 
   function applyTheme(name) {
     // Remove all theme-* classes
@@ -81,18 +72,93 @@ document.addEventListener("DOMContentLoaded", () => {
     body.classList.add("theme-" + name);
 
     // Update button label
-    toggleBtn.textContent = themeLabels[name];
+    if (toggleBtn) {
+      toggleBtn.textContent = themeLabels[name] || "Theme";
+    }
 
     // Save
     localStorage.setItem("qod-theme", name);
   }
 
+  // Load saved theme or default
+  const savedTheme = localStorage.getItem("qod-theme");
+  let currentIndex = 0;
+
+  if (savedTheme && themes.includes(savedTheme)) {
+    currentIndex = themes.indexOf(savedTheme);
+  }
+
   // Initial theme
   applyTheme(themes[currentIndex]);
 
-  // Cycle themes on click
-  toggleBtn.addEventListener("click", () => {
-    currentIndex = (currentIndex + 1) % themes.length;
-    applyTheme(themes[currentIndex]);
-  });
+  // Cycle themes on click (if button exists)
+  if (toggleBtn) {
+    toggleBtn.addEventListener("click", () => {
+      currentIndex = (currentIndex + 1) % themes.length;
+      applyTheme(themes[currentIndex]);
+    });
+  }
+
+  // ---------- WORLD MAP – hover/click hotspots ----------
+  const worldMapSection = document.querySelector(".world-map-section");
+
+  if (worldMapSection) {
+    const hotspots = worldMapSection.querySelectorAll("[data-map-location]");
+    const titleEl = worldMapSection.querySelector("[data-map-title]");
+    const bodyEl = worldMapSection.querySelector("[data-map-body]");
+    const taglineEl = worldMapSection.querySelector("[data-map-tagline]");
+
+    // Optional defaults if you want them in HTML
+    const defaultTitle = titleEl ? titleEl.textContent : "";
+    const defaultBody = bodyEl ? bodyEl.textContent : "";
+    const defaultTagline = taglineEl ? taglineEl.textContent : "";
+
+    function activateHotspot(hotspot) {
+      if (!hotspot) return;
+      hotspots.forEach(h => h.classList.remove("is-active"));
+      hotspot.classList.add("is-active");
+
+      if (titleEl && hotspot.dataset.mapTitle) {
+        titleEl.textContent = hotspot.dataset.mapTitle;
+      }
+      if (bodyEl && hotspot.dataset.mapBody) {
+        bodyEl.textContent = hotspot.dataset.mapBody;
+      }
+      if (taglineEl) {
+        if (hotspot.dataset.mapTagline) {
+          taglineEl.textContent = hotspot.dataset.mapTagline;
+        } else {
+          taglineEl.textContent = defaultTagline;
+        }
+      }
+    }
+
+    // Activate first hotspot by default (if any)
+    if (hotspots.length > 0) {
+      activateHotspot(hotspots[0]);
+    } else {
+      // No hotspots: restore defaults if present
+      if (titleEl) titleEl.textContent = defaultTitle;
+      if (bodyEl) bodyEl.textContent = defaultBody;
+      if (taglineEl) taglineEl.textContent = defaultTagline;
+    }
+
+    hotspots.forEach(hotspot => {
+      // Hover
+      hotspot.addEventListener("mouseenter", () => {
+        activateHotspot(hotspot);
+      });
+
+      // Keyboard focus
+      hotspot.addEventListener("focus", () => {
+        activateHotspot(hotspot);
+      });
+
+      // Tap/click (nice for mobile)
+      hotspot.addEventListener("click", () => {
+        activateHotspot(hotspot);
+      });
+    });
+  }
 });
+

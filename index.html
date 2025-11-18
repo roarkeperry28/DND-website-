@@ -14,40 +14,39 @@
   <div class="ambient-layer"></div>
 
   <header>
-  <div class="nav-inner">
-    <div class="logo">
-      <span></span> Queen of Dragons
+    <div class="nav-inner">
+      <div class="logo">
+        <span></span> Queen of Dragons
+      </div>
+
+      <!-- Theme toggle button -->
+      <button
+        class="theme-toggle"
+        type="button"
+        data-theme-toggle
+        aria-label="Change color theme"
+      >
+        Infernal
+      </button>
+
+      <!-- Hamburger button for mobile -->
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="party.html">Party</a></li>
+          <li><a href="loot.html">Loot</a></li>
+          <li><a href="locations.html">Places</a></li>
+          <li><a href="sessions.html">Sessions</a></li>
+        </ul>
+      </nav>
     </div>
-
-    <!-- Theme toggle button -->
-    <button
-      class="theme-toggle"
-      type="button"
-      data-theme-toggle
-      aria-label="Change color theme"
-    >
-      Infernal
-    </button>
-
-    <!-- Hamburger button for mobile -->
-    <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
-      <span class="nav-toggle-bar"></span>
-      <span class="nav-toggle-bar"></span>
-      <span class="nav-toggle-bar"></span>
-    </button>
-
-    <nav class="main-nav">
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="party.html">Party</a></li>
-        <li><a href="loot.html">Loot</a></li>
-        <li><a href="locations.html">Places</a></li>
-        <li><a href="sessions.html">Sessions</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
+  </header>
 
   <main>
     <!-- HERO / COVER -->
@@ -72,8 +71,9 @@
             weaves a new cocoon of divinity.
           </p>
           <div class="hero-buttons">
-            <a href="#party" class="btn btn-primary">Meet the Party</a>
-            <a href="#locations" class="btn btn-secondary">Explore the World</a>
+            <!-- UPDATED: now go to full pages instead of in-page anchors -->
+            <a href="party.html" class="btn btn-primary">Meet the Party</a>
+            <a href="locations.html" class="btn btn-secondary">Explore the World</a>
           </div>
           <div class="hero-meta">
             <span>Level 1 → 15</span>
@@ -535,3 +535,4 @@
   </footer>
 </body>
 </html>
+

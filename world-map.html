@@ -54,10 +54,11 @@
     <section class="hero" id="top">
       <div class="hero-inner">
         <div class="hero-image">
-          <!-- Use your panoramic map image here -->
+          <!-- Use a dedicated world map hero image here -->
+          <!-- Example filename: images/world-map-hero.jpg -->
           <img
-            src="images/hero-locations.jpg"
-            alt="A sweeping fantasy map of coasts, mountains, deserts and forests"
+            src="images/world-map-hero.jpg"
+            alt="A sweeping fantasy map of coasts, mountains, deserts and distant stormy seas"
           />
         </div>
 
@@ -70,9 +71,9 @@
             A Map of Their Journey
           </h1>
           <p class="hero-text">
-            Track where you’ve been and where you’re going. Hover or tap the map markers
-            to see quick lore about key locations: Stormwreck Isle, the town of Greennest,
-            the infernal battlefields of Avernus, and the lightless caverns of the Underdark.
+            Track where you’ve been and where you’re going. Use this map to anchor
+            the story in space: from storm-lashed islands to dragon graveyards,
+            hell-burned skies, and the lightless caverns below.
           </p>
           <div class="hero-buttons">
             <a href="#world-map" class="btn btn-primary">Open the Map</a>
@@ -98,9 +99,11 @@
       <div class="world-map-layout">
         <!-- MAP + HOTSPOTS -->
         <div class="world-map-wrapper">
+          <!-- Use a dedicated main map image here -->
+          <!-- Example filename: images/world-map-main.jpg -->
           <img
-            src="images/hero-locations.jpg"
-            alt="A panoramic fantasy map showing coasts, plains, mountains, deserts, and distant infernal skies"
+            src="images/world-map-main.jpg"
+            alt="A detailed fantasy world map with marked regions of the Sword Coast, Avernus and the Underdark"
             class="world-map-image"
           />
 
@@ -154,6 +157,61 @@
         </aside>
       </div>
     </section>
+
+    <!-- STATIC FALLBACK / EXTRA LORE -->
+    <section class="world-map-locations">
+      <h2>Key Journey Points</h2>
+      <p class="section-subtitle">
+        If the interactive markers ever misbehave, you can still skim this list to
+        remember the big beats of your path.
+      </p>
+
+      <div class="locations-grid">
+        <article class="location-card">
+          <div class="location-body">
+            <div class="location-name">Stormwreck Isle – Dragon’s Rest</div>
+            <div class="location-tag">Prologue • Where it all began</div>
+            <p class="location-text">
+              A storm-lashed monastery on the edge of the world where the Hollow Flame was
+              first uncovered and the party’s fates tangled together.
+            </p>
+          </div>
+        </article>
+
+        <article class="location-card">
+          <div class="location-body">
+            <div class="location-name">Greennest &amp; the Raiders’ Path</div>
+            <div class="location-tag">Tyranny of Dragons • Early Arc</div>
+            <p class="location-text">
+              A quiet town turned battlefield, and the first true sign that the Cult of
+              the Dragon is moving openly across the Sword Coast.
+            </p>
+          </div>
+        </article>
+
+        <article class="location-card">
+          <div class="location-body">
+            <div class="location-name">The Scars of Avernus</div>
+            <div class="location-tag">Descent into Avernus • Future Arc</div>
+            <p class="location-text">
+              A blood-red sky, rusted war machines and chains that stretch into infinity.
+              Here, the party will walk the same battlefields where Zariel fell and rose.
+            </p>
+          </div>
+        </article>
+
+        <article class="location-card">
+          <div class="location-body">
+            <div class="location-name">The Cocoon of Silent Webs</div>
+            <div class="location-tag">Underdark • Lolth’s Metamorphosis</div>
+            <p class="location-text">
+              Deep below, threads of fate knot around a god-spider’s cocoon. Every choice
+              above tugs at these strands — and the party will eventually follow them down.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
   </main>
 
   <footer>
@@ -164,4 +222,3 @@
   </footer>
 </body>
 </html>
-

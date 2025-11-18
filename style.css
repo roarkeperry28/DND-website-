@@ -745,7 +745,114 @@ body.theme-shadow .ambient-layer::after {
   pointer-events: none;
 }
 
-/* Responsive */
+/* ---------- WORLD MAP PAGE ---------- */
+
+.world-map-layout {
+  margin-top: 2.2rem;
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: var(--gap);
+  align-items: stretch;
+}
+
+.world-map-card {
+  background: var(--card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+}
+
+.world-map-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 380px;
+  max-height: 520px;
+  overflow: hidden;
+}
+
+.world-map-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Hotspots */
+
+.map-hotspot {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 999px;
+  border: 2px solid rgba(255,255,255,0.9);
+  background: radial-gradient(circle, var(--accent) 0, rgba(0,0,0,0.7) 55%);
+  box-shadow: 0 0 12px rgba(0,0,0,0.9), 0 0 22px rgba(228, 87, 46, 0.8);
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  transition: transform 0.12s ease, box-shadow 0.15s ease, background 0.15s ease;
+}
+
+.map-hotspot::after {
+  content: "";
+  position: absolute;
+  inset: -8px;
+  border-radius: inherit;
+  border: 1px solid rgba(255,255,255,0.45);
+  opacity: 0.7;
+}
+
+.map-hotspot:hover,
+.map-hotspot.is-active {
+  transform: translate(-50%, -50%) scale(1.1);
+  box-shadow:
+    0 0 14px rgba(0,0,0,0.95),
+    0 0 30px rgba(228,87,46,0.95);
+}
+
+/* Fine-tune hotspot colors in Shadow mode */
+body.theme-shadow .map-hotspot {
+  background: radial-gradient(circle, var(--accent) 0, rgba(0,0,0,0.7) 60%);
+  box-shadow: 0 0 14px rgba(0,0,0,0.95), 0 0 26px rgba(156,107,255,0.9);
+}
+
+/* Lore panel */
+
+.world-map-lore {
+  background: var(--card);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  padding: 1.4rem 1.5rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+.world-map-lore-label {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--muted);
+}
+
+.world-map-lore-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.world-map-lore-text {
+  font-size: 0.9rem;
+  color: #e6e6ff;
+}
+
+.world-map-lore-note {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: 0.4rem;
+}
+
+/* Make map stack on small screens */
 
 @media (max-width: 900px) {
   .hero-inner {
@@ -797,14 +904,14 @@ body.theme-shadow .ambient-layer::after {
     padding: 0.2rem 0.1rem;
     border-bottom: none;
   }
+
+  .world-map-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .world-map-image-wrapper {
+    min-height: 260px;
+  }
 }
 
-@media (max-width: 640px) {
-  .hero-buttons {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  section {
-    padding-inline: 1rem;
-  }
-}
+@media (max-width: 640px

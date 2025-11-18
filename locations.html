@@ -5,31 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Queen of Dragons – Places</title>
   <link rel="stylesheet" href="style.css" />
-  <!-- Load main JS once, deferred -->
   <script src="script.js" defer></script>
 </head>
 
 <body>
-  <!-- Ambient effects container -->
   <div class="ambient-layer"></div>
 
   <header>
     <div class="nav-inner">
-      <div class="logo">
-        <span></span> Queen of Dragons
-      </div>
+      <div class="logo"><span></span> Queen of Dragons</div>
 
-      <!-- Theme toggle button -->
-      <button
-        class="theme-toggle"
-        type="button"
-        data-theme-toggle
-        aria-label="Change color theme"
-      >
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Change color theme">
         Infernal
       </button>
 
-      <!-- Hamburger button for mobile -->
       <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
         <span class="nav-toggle-bar"></span>
         <span class="nav-toggle-bar"></span>
@@ -49,13 +38,18 @@
   </header>
 
   <main>
+
     <!-- HERO / COVER FOR PLACES -->
     <section class="hero" id="top">
       <div class="hero-inner">
         <div class="hero-image">
-          <!-- Use any image you like here -->
-          <img src="images/skyship.jpg" alt="A skyship sailing over a burning horizon with distant mountains and clouds">
+
+          <!-- NEW IMAGE INSERTED HERE -->
+          <img src="images/hero-locations.jpg"
+               alt="Panoramic view of Faerûn with mountains, rivers, and distant kingdoms">
+
         </div>
+
         <div class="hero-content">
           <div class="hero-tag">
             <span>World Map</span> • From Stormwreck to the Well of Dragons
@@ -82,7 +76,7 @@
       </div>
     </section>
 
-    <!-- LOCATIONS ONLY -->
+    <!-- LOCATIONS LIST -->
     <section id="locations">
       <h2>Major Locations</h2>
       <p class="section-subtitle">
@@ -91,6 +85,7 @@
       </p>
 
       <div class="locations-grid">
+
         <!-- Skyship -->
         <article class="location-card">
           <div class="location-image">
@@ -107,7 +102,7 @@
           </div>
         </article>
 
-        <!-- Avernus Warfront -->
+        <!-- Avernus -->
         <article class="location-card">
           <div class="location-image">
             <img src="images/avernus-warfront.jpg" alt="A battlefield in Avernus with rivers of lava and infernal war machines">
@@ -123,7 +118,7 @@
           </div>
         </article>
 
-        <!-- Underdark / Lolth Cocoon -->
+        <!-- Lolth Cocoon -->
         <article class="location-card">
           <div class="location-image">
             <img src="images/lolth-cocoon.jpg" alt="A vast glowing cocoon suspended in a cavern full of webs">
@@ -139,7 +134,7 @@
           </div>
         </article>
 
-        <!-- Dragon’s Rest / Stormwreck -->
+        <!-- Stormwreck -->
         <article class="location-card">
           <div class="location-image">
             <img src="images/stormwreck-isle.jpg" alt="Stormy cliffs and a monastery overlooking a raging sea">
@@ -169,6 +164,7 @@
             </p>
           </div>
         </article>
+
       </div>
     </section>
   </main>
@@ -179,6 +175,6 @@
       rules &amp; setting based on Dungeons &amp; Dragons 5E.
     </p>
   </footer>
+
 </body>
 </html>
-

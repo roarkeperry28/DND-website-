@@ -1,1 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Queen of Dragons – Places</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Load main JS once, deferred -->
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+  <!-- Ambient effects container -->
+  <div class="ambient-layer"></div>
+
+  <header>
+    <div class="nav-inner">
+      <div class="logo">
+        <span></span> Queen of Dragons
+      </div>
+
+      <!-- Theme toggle button -->
+      <button
+        class="theme-toggle"
+        type="button"
+        data-theme-toggle
+        aria-label="Change color theme"
+      >
+        Infernal
+      </button>
+
+      <!-- Hamburger button for mobile -->
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="party.html">Party</a></li>
+          <li><a href="loot.html">Loot</a></li>
+          <li><a href="locations.html">Places</a></li>
+          <li><a href="sessions.html">Sessions</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO / COVER FOR PLACES -->
+    <section class="hero" id="top">
+      <div class="hero-inner">
+        <div class="hero-image">
+          <!-- Use any image you like here -->
+          <img src="images/skyship.jpg" alt="A skyship sailing over a burning horizon with distant mountains and clouds">
+        </div>
+        <div class="hero-content">
+          <div class="hero-tag">
+            <span>World Map</span> • From Stormwreck to the Well of Dragons
+          </div>
+          <h1 class="hero-title">
+            <span>Places They Will See</span><br />
+            across Faerûn and beyond
+          </h1>
+          <p class="hero-text">
+            Storm-lashed monasteries, infernal battlefields, spider-haunted caverns, and dragon
+            graveyards turned into altars. This page gathers the key locations of the campaign so
+            everyone knows exactly what kind of trouble they’re sailing toward.
+          </p>
+          <div class="hero-buttons">
+            <a href="sessions.html" class="btn btn-primary">Jump to Sessions</a>
+            <a href="index.html" class="btn btn-secondary">Return to Home</a>
+          </div>
+          <div class="hero-meta">
+            <span>Faerûn &amp; Avernus</span>
+            <span>Travel Log for the Party</span>
+            <span>DM Notes Friendly</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOCATIONS ONLY -->
+    <section id="locations">
+      <h2>Major Locations</h2>
+      <p class="section-subtitle">
+        From storm-lashed monasteries to skyships, hellscapes, and spider-haunted caverns.
+        Use this as a visual travel log and a quick reference before each session.
+      </p>
+
+      <div class="locations-grid">
+        <!-- Skyship -->
+        <article class="location-card">
+          <div class="location-image">
+            <img src="images/skyship.jpg" alt="A majestic sailing ship flying in a golden sky">
+          </div>
+          <div class="location-body">
+            <div class="location-name">The Dawn of Ashes</div>
+            <div class="location-tag">Skyship • Transition to Tyranny of Dragons</div>
+            <p class="location-text">
+              The enchanted ship that carries the party from the burning of Greenest into
+              the wider war. Its hull remembers every storm, and its crew has more secrets
+              than the cargo hold.
+            </p>
+          </div>
+        </article>
+
+        <!-- Avernus Warfront -->
+        <article class="location-card">
+          <div class="location-image">
+            <img src="images/avernus-warfront.jpg" alt="A battlefield in Avernus with rivers of lava and infernal war machines">
+          </div>
+          <div class="location-body">
+            <div class="location-name">The Scars of Avernus</div>
+            <div class="location-tag">First Layer of Hell • Future Arc</div>
+            <p class="location-text">
+              A wasteland of shattered fortresses, infernal war machines, and chains that
+              vanish into the blood-red sky. Here, devils fight not just demons — but each
+              other, for Zariel’s fading favor.
+            </p>
+          </div>
+        </article>
+
+        <!-- Underdark / Lolth Cocoon -->
+        <article class="location-card">
+          <div class="location-image">
+            <img src="images/lolth-cocoon.jpg" alt="A vast glowing cocoon suspended in a cavern full of webs">
+          </div>
+          <div class="location-body">
+            <div class="location-name">The Cocoon of Silent Webs</div>
+            <div class="location-tag">Underdark • Lolth’s Awakening</div>
+            <p class="location-text">
+              Far below the world, a god-spider dreams inside a shifting cocoon of silk and
+              shadow. Every strand pulls at fate above — drow cities, surface wars, even
+              the dragons of the world.
+            </p>
+          </div>
+        </article>
+
+        <!-- Dragon’s Rest / Stormwreck -->
+        <article class="location-card">
+          <div class="location-image">
+            <img src="images/stormwreck-isle.jpg" alt="Stormy cliffs and a monastery overlooking a raging sea">
+          </div>
+          <div class="location-body">
+            <div class="location-name">Dragon’s Rest, Stormwreck Isle</div>
+            <div class="location-tag">Prologue • Where it All Began</div>
+            <p class="location-text">
+              Salt-stung stone, dragon-blessed winds, and the first whispers of the Hollow
+              Flame. The monastery’s quiet halls hide visions that won’t stop echoing.
+            </p>
+          </div>
+        </article>
+
+        <!-- Well of Dragons -->
+        <article class="location-card">
+          <div class="location-image">
+            <img src="images/well-of-dragons.jpg" alt="A volcanic caldera with armies and a rising five-headed dragon">
+          </div>
+          <div class="location-body">
+            <div class="location-name">The Well of Dragons</div>
+            <div class="location-tag">Tyranny of Dragons • Final Battle</div>
+            <p class="location-text">
+              A mass grave of dragons turned into a colossal altar. Here, cultists dare to
+              tear open reality and crown Tiamat Queen of Dragons once more — unless your
+              party breaks the ritual first.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      Homebrew campaign hub for <span>Queen of Dragons</span>. Artwork placeholders by you + AI;
+      rules &amp; setting based on Dungeons &amp; Dragons 5E.
+    </p>
+  </footer>
+</body>
+</html>
 

@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Queen of Dragons – The Party</title>
   <link rel="stylesheet" href="style.css" />
-  <!-- Load main JS once, deferred -->
   <script src="script.js" defer></script>
 </head>
   
@@ -19,17 +18,10 @@
         <span></span> Queen of Dragons
       </div>
 
-      <!-- Theme toggle button -->
-      <button
-        class="theme-toggle"
-        type="button"
-        data-theme-toggle
-        aria-label="Change color theme"
-      >
+      <button class="theme-toggle" type="button" data-theme-toggle aria-label="Change color theme">
         Infernal
       </button>
 
-      <!-- Hamburger button for mobile -->
       <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
         <span class="nav-toggle-bar"></span>
         <span class="nav-toggle-bar"></span>
@@ -49,30 +41,36 @@
   </header>
 
   <main>
-    <!-- HERO / COVER (Party-focused) -->
+
+    <!-- HERO / COVER (Updated with new hero art) -->
     <section class="hero" id="top">
       <div class="hero-inner">
         <div class="hero-image">
-          <!-- You can swap this for a group shot later if you like -->
-          <img src="images/cover-tiamat-avernus.jpg" alt="Adventuring party facing dragons and hellish skies">
+          <img src="images/party-hero-underdark.jpg" 
+               alt="Eight silhouetted adventurers overlooking a glowing Underdark fungus valley">
         </div>
+
         <div class="hero-content">
           <div class="hero-tag">
             <span>Meet the Party</span> • Eight souls, one doomed world
           </div>
+
           <h1 class="hero-title">
             <span>The Dragon-Bound</span><br />
             Heroes of Stormwreck, Hell, and Webs
           </h1>
+
           <p class="hero-text">
             From a tiefling bard wrapped in starlight to a halfling paladin of reckless mercy,
             this is the crew dragging the Sword Coast back from the brink — or going down
             laughing as dragons, devils, and gods close in.
           </p>
+
           <div class="hero-buttons">
             <a href="#party" class="btn btn-primary">Scroll to Party</a>
             <a href="index.html" class="btn btn-secondary">Back to Campaign Hub</a>
           </div>
+
           <div class="hero-meta">
             <span>Level 8 (Current)</span>
             <span>Stormwreck → Tyranny → Avernus → Underdark</span>
@@ -82,7 +80,7 @@
       </div>
     </section>
 
-    <!-- PARTY -->
+    <!-- PARTY LIST -->
     <section id="party">
       <h2>The Party</h2>
       <p class="section-subtitle">
@@ -94,7 +92,7 @@
       <div class="party-grid">
         <!-- Lyrixia -->
         <article class="party-card">
-          <img src="images/lyrixia.jpg" alt="Lyrixia, a purple tiefling bard with a flute and golden jewelry">
+          <img src="images/lyrixia.jpg" alt="Lyrixia, tiefling bard">
           <div class="party-body">
             <div class="party-name">Lyrixia</div>
             <div class="party-role">Lvl 8 • Tiefling • Bard (College of Lore)</div>
@@ -108,7 +106,7 @@
 
         <!-- Ghost Hands -->
         <article class="party-card">
-          <img src="images/ghost-hands.jpg" alt="Ghost Hands, a pale elf rogue in black leather with a dagger and sickle">
+          <img src="images/ghost-hands.jpg" alt="Ghost Hands, elf rogue">
           <div class="party-body">
             <div class="party-name">Ghost Hands</div>
             <div class="party-role">Lvl 8 • Elf • Rogue (Phantom)</div>
@@ -122,10 +120,10 @@
 
         <!-- Teki -->
         <article class="party-card">
-          <img src="images/teki.jpg" alt="Teki, a fire-haired genasi barbarian with blazing eyes and heavy weapons">
+          <img src="images/teki.jpg" alt="Teki, fire genasi barbarian">
           <div class="party-body">
             <div class="party-name">Teki</div>
-            <div class="party-role">Lvl 8 • Fire Genasi • Barbarian (Path of Wild Magic)</div>
+            <div class="party-role">Lvl 8 • Fire Genasi • Barbarian (Wild Magic)</div>
             <div class="party-player">Player: nickmueller9921</div>
             <p class="tagline">
               Born in an eruption, destined to burn the Cult of the Hollow Flame from the map.
@@ -136,10 +134,10 @@
 
         <!-- Goose Honk -->
         <article class="party-card">
-          <img src="images/goose-honk.jpg" alt="Goose Honk, a smiling halfling paladin in bright armor">
+          <img src="images/goose-honk.jpg" alt="Goose Honk, halfling paladin">
           <div class="party-body">
             <div class="party-name">Goose Honk</div>
-            <div class="party-role">Lvl 8 • Halfling • Paladin (Oath of Redemption)</div>
+            <div class="party-role">Lvl 8 • Halfling • Paladin (Redemption)</div>
             <div class="party-player">Player: AngusQueen</div>
             <p class="tagline">
               A tiny paladin with a radiant laugh and a vow to save everyone she can —
@@ -150,24 +148,24 @@
 
         <!-- ZOX -->
         <article class="party-card">
-          <img src="images/zox.jpg" alt="ZOX, an eerie celestial-void being with white skin, black eyes and golden fangs">
+          <img src="images/zox.jpg" alt="ZOX, aasimar warlock">
           <div class="party-body">
             <div class="party-name">ZOX</div>
             <div class="party-role">Lvl 8 • Aasimar • Warlock (Great Old One)</div>
             <div class="party-player">Player: PUPAxDearum</div>
             <p class="tagline">
-              A living sigil of something that watched the multiverse being born. Their
-              patron is neither demon nor god — but something even dragons fear to name.
+              A living sigil of something that watched the multiverse being born.
+              Their patron is neither demon nor god — but something even dragons fear.
             </p>
           </div>
         </article>
 
-        <!-- Elara Sunfang -->
+        <!-- Elara -->
         <article class="party-card">
-          <img src="images/elara-sunfang.jpg" alt="Elara, an elf in black leathers holding twin daggers">
+          <img src="images/elara-sunfang.jpg" alt="Elara, elf blood hunter">
           <div class="party-body">
             <div class="party-name">Elara Sunfang</div>
-            <div class="party-role">Lvl 8 • Elf • Blood Hunter (Order of the Lycan)</div>
+            <div class="party-role">Lvl 8 • Elf • Blood Hunter (Lycan)</div>
             <div class="party-player">Player: FeminemXMnM</div>
             <p class="tagline">
               A cursed hunter who drinks moonlight and monster blood in equal measure.
@@ -176,23 +174,23 @@
           </div>
         </article>
 
-        <!-- Syla Vaelora -->
+        <!-- Syla -->
         <article class="party-card">
-          <img src="images/syla-vaelora.jpg" alt="Syla, an elf ranger with a green hood and bow in a dark forest">
+          <img src="images/syla-vaelora.jpg" alt="Syla, elf ranger">
           <div class="party-body">
             <div class="party-name">Syla Vaelora</div>
             <div class="party-role">Lvl 8 • Elf • Ranger (Fey Wanderer)</div>
             <div class="party-player">Player: Jules4422</div>
             <p class="tagline">
-              A ranger with one foot in the mortal woods and one in the Feywild. She
-              reads omens in roots and starlight — and the omens say something is very wrong.
+              A ranger with one foot in the mortal woods and one in the Feywild.
+              She reads omens in roots and starlight — and something is very wrong.
             </p>
           </div>
         </article>
 
-        <!-- Future PC placeholder -->
+        <!-- Future Placeholder -->
         <article class="party-card">
-          <img src="images/mystery-hero.jpg" alt="Shadowed figure standing at the edge of a portal">
+          <img src="images/mystery-hero.jpg" alt="Shadowed mysterious figure">
           <div class="party-body">
             <div class="party-name">???</div>
             <div class="party-role">Future Ally • To Be Revealed</div>
@@ -203,6 +201,7 @@
             </p>
           </div>
         </article>
+
       </div>
     </section>
   </main>
@@ -210,9 +209,10 @@
   <footer>
     <p>
       Homebrew campaign hub for <span>Queen of Dragons</span>. Artwork placeholders by you + AI;
-      rules &amp; setting based on Dungeons &amp; Dragons 5E.
+      D&D 5E rules apply.
     </p>
   </footer>
 </body>
 </html>
+
 

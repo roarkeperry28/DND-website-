@@ -1,1 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Queen of Dragons – Relics & Rewards</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Load main JS once, deferred -->
+  <script src="script.js" defer></script>
+</head>
+  
+<body>
+  <!-- Ambient effects container -->
+  <div class="ambient-layer"></div>
+
+  <header>
+    <div class="nav-inner">
+      <div class="logo">
+        <span></span> Queen of Dragons
+      </div>
+
+      <!-- Theme toggle button -->
+      <button
+        class="theme-toggle"
+        type="button"
+        data-theme-toggle
+        aria-label="Change color theme"
+      >
+        Infernal
+      </button>
+
+      <!-- Hamburger button for mobile -->
+      <button class="nav-toggle" type="button" aria-label="Toggle navigation" aria-expanded="false">
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+        <span class="nav-toggle-bar"></span>
+      </button>
+
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="party.html">Party</a></li>
+          <li><a href="loot.html">Loot</a></li>
+          <li><a href="locations.html">Places</a></li>
+          <li><a href="sessions.html">Sessions</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO / COVER -->
+    <section class="hero" id="top">
+      <div class="hero-inner">
+        <div class="hero-image">
+          <!-- You can swap this for a treasure/altar image later if you want -->
+          <img src="images/cover-tiamat-avernus.jpg" alt="Tiamat rising over a hellish citadel above a hoard of treasure">
+        </div>
+        <div class="hero-content">
+          <div class="hero-tag">
+            <span>Relics & Rewards</span> • Echo Items • Campaign Artifacts
+          </div>
+          <h1 class="hero-title">
+            <span>Relics of the Queen</span><br />
+            treasures bound to dragons & devils
+          </h1>
+          <p class="hero-text">
+            These aren’t random +1 drops. Every item on this page is tied to your party’s
+            choices, dragon cult rituals, infernal bargains, and the slow tightening of
+            Tiamat’s chains. Use this page as a living vault for story-shaped loot.
+          </p>
+          <div class="hero-buttons">
+            <a href="#loot" class="btn btn-primary">View All Relics</a>
+            <a href="index.html#top" class="btn btn-secondary">Back to Overview</a>
+          </div>
+          <div class="hero-meta">
+            <span>Character-bound Echo Items</span>
+            <span>Dragon Cult & Avernus Themes</span>
+            <span>Story-Driven Rewards</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LOOT & REWARDS -->
+    <section id="loot">
+      <h2>Relics & Rewards</h2>
+      <p class="section-subtitle">
+        Not just +1 swords. These are story-shaped treasures tied to dragons, devils, and
+        the threads of fate around your party. Use them as inspiration for loot drops or
+        long-term quest rewards.
+      </p>
+
+      <div class="loot-grid">
+        <article class="loot-card">
+          <div class="loot-rarity">Rare</div>
+          <div class="loot-name">Echo-Flute of the Hollow Star</div>
+          <div class="loot-type">Instrument (requires attunement by Lyrixia)</div>
+          <p class="loot-text">
+            Silver flute inlaid with faint constellations. Once per long rest, Lyrixia can
+            weave a performance that echoes across planes, granting allies advantage on
+            a key encounter — or letting a secret message ride the song to a distant ear.
+          </p>
+          <p class="loot-hook">
+            Found in a ruined dragon shrine, still humming with forgotten hymns.
+          </p>
+        </article>
+
+        <article class="loot-card">
+          <div class="loot-rarity">Very Rare</div>
+          <div class="loot-name">Blisterbark, Cursed Infernal Musket</div>
+          <div class="loot-type">Weapon (attunement by Ghost Hands)</div>
+          <p class="loot-text">
+            A talking musket forged in the Nine Hells, sarcastic and bloodthirsty. Deals
+            extra necrotic or fire damage and can whisper secrets from souls it has slain —
+            but it hungrily tempts its wielder toward darker choices.
+          </p>
+          <p class="loot-hook">
+            Upgrades as Ghost Hands confronts her own death and the cult that caused it.
+          </p>
+        </article>
+
+        <article class="loot-card">
+          <div class="loot-rarity">Rare</div>
+          <div class="loot-name">Emberblood Greataxe</div>
+          <div class="loot-type">Weapon (attunement by Teki)</div>
+          <p class="loot-text">
+            A brutal axe whose blade drips molten light. When Teki rages, the weapon erupts
+            in wild fire, sometimes bending reality around his swings — teleport sparks,
+            sudden bursts of flame, or searing afterimages.
+          </p>
+          <p class="loot-hook">
+            A relic “prophesied” by the Cult of the Hollow Flame, reclaimed for vengeance.
+          </p>
+        </article>
+
+        <article class="loot-card">
+          <div class="loot-rarity">Rare</div>
+          <div class="loot-name">Halo of the Gentle Shield</div>
+          <div class="loot-type">Wondrous item (attunement by Goose Honk)</div>
+          <p class="loot-text">
+            A soft golden halo that appears when Goose stands between an enemy and an ally.
+            Grants powerful protective reactions and allows her to turn killing blows into
+            unconsciousness instead — if the attacker can be redeemed.
+          </p>
+          <p class="loot-hook">
+            Manifested during a moment when Goose chooses mercy over victory.
+          </p>
+        </article>
+
+        <article class="loot-card">
+          <div class="loot-rarity">Very Rare</div>
+          <div class="loot-name">Cocoon-Thread Cloak</div>
+          <div class="loot-type">Cloak (attunement by Syla or Elara)</div>
+          <p class="loot-text">
+            Woven from silvery strands stolen from Lolth’s evolving cocoon. Grants
+            shadowstep through web-like cracks in reality, but occasional whispers
+            urge the wearer to abandon friends for “greater hunts”.
+          </p>
+          <p class="loot-hook">
+            Harvested in a desperate raid into the Underdark, beneath Lolth’s gaze.
+          </p>
+        </article>
+
+        <article class="loot-card">
+          <div class="loot-rarity">Legendary</div>
+          <div class="loot-name">Void-Sigil Grimoire</div>
+          <div class="loot-type">Wondrous item (attunement by ZOX)</div>
+          <p class="loot-text">
+            A living book whose pages are starless night. Grants access to reality-bending
+            invocations, telepathy across planes, and glimpses of the moment Tiamat first
+            opened her eyes — but pages sometimes write back.
+          </p>
+          <p class="loot-hook">
+            The grimoire awakens fully after ZOX makes a choice that even their patron
+            cannot easily predict.
+          </p>
+        </article>
+
+        <article class="loot-card">
+          <div class="loot-rarity">Legendary</div>
+          <div class="loot-name">Shard of the Broken Chain</div>
+          <div class="loot-type">Campaign Relic (party attunement)</div>
+          <p class="loot-text">
+            A fragment of the infernal bindings that once held Tiamat in Avernus. When
+            carried by the whole party, it can weaken dragon cult rituals, disrupt devil
+            contracts, and — at the very end — tip the scales in the final confrontation.
+          </p>
+          <p class="loot-hook">
+            Assemble all fragments over the course of the campaign to unlock its true power.
+          </p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      Homebrew campaign hub for <span>Queen of Dragons</span>. Artwork placeholders by you + AI;
+      rules &amp; setting based on Dungeons &amp; Dragons 5E.
+    </p>
+  </footer>
+</body>
+</html>
 
